@@ -1,15 +1,14 @@
 import React from "react"
-import {v4 as uuid} from "uuid"
 
-function NewPlanetForm() {
+function NewPlanetForm({ newPlanet: { name, climate, terrain, population }, handleChange, addPlanet }) {
 
-    return(
-        <form>
-            <input type="text" name="name" placeholder="Name" />
-            <input type="text" name="climate" placeholder="Climate" />
-            <input type="text" name="terrain" placeholder="Terrain"/>
-            <input type="text" name="population" placeholder="Population" />
-            <input type="submit" value="Add"/>
+    return (
+        <form onSubmit={addPlanet}>
+            <input onChange={handleChange} value={name} type="text" name="name" placeholder="Name" />
+            <input onChange={handleChange} value={climate} type="text" name="climate" placeholder="Climate" />
+            <input onChange={handleChange} value={terrain} type="text" name="terrain" placeholder="Terrain" />
+            <input onChange={handleChange} value={population} type="text" name="population" placeholder="Population" />
+            <input type="submit" value="Add" />
         </form>
     );
 }
